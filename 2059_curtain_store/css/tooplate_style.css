@@ -111,11 +111,6 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 	color: #fff
 }
 
-.sb_menu {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
 .sb_menu li a:hover {
 	text-decoration: none;
 	background: #000

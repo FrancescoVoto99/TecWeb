@@ -38,7 +38,21 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 .cleaner { clear: both }
 
 .latofoto { 
-	float: right;
+        text-align: left;
+        float: right;
+        color:#000000;
+        font-size: 17px;
+}
+.sottofoto { 
+        text-align: left;
+        margin-left: 20px;
+        color:#000000;
+        font-size: 17px;
+}
+
+.latofoto1 { 
+        text-align: center;
+        margin-left: 20px;
         color:#000000;
         font-size: 17px;
 }

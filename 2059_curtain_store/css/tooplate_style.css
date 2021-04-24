@@ -56,6 +56,14 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
         color:#000000;
         font-size: 17px;
 }
+.footer1 { 
+        float: left;
+        text-align: center;
+        font-style: italic;
+        padding: 0 20px;
+        color:#ffffff;
+        font-size: 13px;
+}
 
 
 .tooplate_list li a:hover { 

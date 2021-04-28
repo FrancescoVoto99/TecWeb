@@ -18,7 +18,8 @@
 				$pr=$row["Prezzo Evento"];
 				$dv=$row["Biglietti venduti"];
                 echo "<tr><td>$co</td><td>$ti</td><td>$au</td><td>$pr</td><td>$dv</td></tr>";
-              }
+             
+                }
 			  mysqli_free_result($ris);
               mysqli_close($conn);
             ?>

@@ -52,8 +52,7 @@
                                 //$to=$row["IncassoTotale"];
                                 //$sc=$row["sconto"];
                
-			  mysqli_free_result($ris);
-              mysqli_close($conn);
+			  
               echo ' <div id="tooplate_content">';
                  echo "<h2><a href='evento.html?$id'>$no</a></h2>";
                   echo '  <img src="images/tooplate_image_04.png" alt="Image 04" />';
@@ -74,6 +73,8 @@
                         echo '  </div>';
               
                           }
+                          mysqli_free_result($ris);
+              mysqli_close($conn);
             ?>
                 
                 

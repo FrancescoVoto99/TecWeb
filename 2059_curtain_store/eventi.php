@@ -29,8 +29,9 @@
                                 $to=$row["IncassoTotale"];
                                 $sc=$row["sconto"];
                 /*echo "<tr><td>$id</td><td>$no</td><td>$de</td><td><$da></td><td>$do</td><td>$lu</td><td>$ca</td><td>$ra</td><td>$pr</td><td>$di</td><td>$ve</td><td>$to</td><td>$sc</td></tr>";
-                }*/
-			  mysqli_free_result($ris);
+                */
+                          }
+              mysqli_free_result($ris);
               mysqli_close($conn);
             ?>
         </table>

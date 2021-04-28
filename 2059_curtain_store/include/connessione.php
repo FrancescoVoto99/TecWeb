@@ -1,5 +1,5 @@
 <?php
 $USER="root";
-$DB="eventi";
+$DB="evento";
 $HOST="localhost";
 $PASSWORD="";

@@ -30,43 +30,53 @@
                     </div>
 
                 </div> <!-- end of sidebar -->
-                <div id="tooplate_content">
-                    <h2><a href="evento.html">EVENTO 1</a></h2>
-                    <img src="images/tooplate_image_04.png" alt="Image 04" />
-                    <div class="latofoto">
-                    <p>Prezzo:</p>
-                    <br></br>
-                    <p>Biglietti disponibili:</p>
-                    </div>
-                    <br></br><br></br>
+                <?php
+              include("include/connessione.php");
+              
+              $conn=mysqli_connect($HOST, $USER, $PASSWORD,$DB);
+              $ris=mysqli_query($conn, "select * from eventi");
+              
+                      while ( $row=mysqli_fetch_assoc($ris)) {
+                                $id=$row["id"];
+				$no=$row["nomeEvento"];
+				$de=$row["descrizione"];
+                                //header("Content-Type:/jpeg ");
+                                //$da=$row["dati"];
+				//$do=$row["dataOra"];
+				//$lu=$row["luogo"];
+                                //$ca=$row["categoria"];
+                                //$ra=$row["raggiungere"];
+                                $pr=$row["prezzo"];
+                                $di=$row["bigliettiDisponibili"];
+                                //$ve=$row["bigliettiVenduti"];
+                                //$to=$row["IncassoTotale"];
+                                //$sc=$row["sconto"];
+               
+			  mysqli_free_result($ris);
+              mysqli_close($conn);
+              echo ' <div id="tooplate_content">';
+                 echo "<h2><a href='evento.html?$id'>$no</a></h2>";
+                  echo '  <img src="images/tooplate_image_04.png" alt="Image 04" />';
+                  echo '  <div class="latofoto">';
+                   echo " <p>Prezzo: $pr</p>";
+                   echo ' <br></br>';
+                  echo " <p>Biglietti disponibili: $di </p>";
+                  echo '  </div>';
+                 echo '   <br></br><br></br>';
                     
                     
-                    <p>---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+                echo "    <p>$de</p>";
                         
-                    <div class="cleaner h20"></div>
+                 echo '   <div class="cleaner h20"></div>';
                     
-                    <br class="cleaner" />
-                    <hr> </hr>
-                </div>
-                <div id="tooplate_content">
-
-
-                    <h2><a>EVENTO 2</a></h2>
-                    <img src="images/tooplate_image_04.png" alt="Image 04" />
-                    <div class="latofoto">
-                    <p>prezzo:</p>
-                    <br></br>
-                    <p>Biglietti disponibili:</p>
-                    </div>
-                    <br></br><br></br>
-                    <p>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-
-
-                    <div class="cleaner h20"></div>
-                    
-                    <br class="cleaner" />
-                    <hr></hr>
-                </div>
+                echo '    <br class="cleaner" />';
+              echo '<hr> </hr>';
+                        echo '  </div>';
+              
+                          }
+            ?>
+                
+                
 
 
                 <div class="cleaner"></div>

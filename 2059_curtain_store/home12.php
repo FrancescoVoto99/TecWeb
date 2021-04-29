@@ -22,19 +22,27 @@
             </div>
 
             <div id="tooplate_main">
-                <div id="tooplate_sidebar">
-                    <div class="sb_box">
-                        <h3>CATEGORIE</h3>
-                        <p>EVENTO 1</p>
-                        <p>EVENTO 2</p>
-                    </div>
-
-                </div> <!-- end of sidebar -->
+               
                 <?php
               include("include/connessione.php");
               
               $conn=mysqli_connect($HOST, $USER, $PASSWORD,$DB);
               $ris=mysqli_query($conn, "select * from eventi");
+              $ris2= mysqli_query($conn,"select id, nomeEvento from eventi");
+              
+            echo'  <div id="tooplate_sidebar">';
+             echo'        <div class="sb_box">'; 
+             echo '<h3>CATEGORIE</h3>';         
+                        
+             while ( $row=mysqli_fetch_assoc($ris2)) {
+                 $id=$row["id"];
+                 $nomee=$row["nomeEvento"];
+             echo "<p><a href='#$id'>$nomee</a></p>"; }
+             
+                 echo '</div>';    
+
+                 echo '</div>'; 
+                 
               
                       while ( $row=mysqli_fetch_assoc($ris)) {
                                 $id=$row["id"];
@@ -54,7 +62,7 @@
                
                       
               echo ' <div id="tooplate_content">';
-                 echo "<h2><a href='evento.php?id=$id'>$no</a></h2>";
+                 echo "<h2><a name='$id' href='evento.php?id=$id'>$no</a></h2>";
                   echo '  <img src="images/tooplate_image_04.png" alt="Image 04" />';
                   echo '  <div class="latofoto">';
                    echo " <p>Prezzo: $pr</p>";

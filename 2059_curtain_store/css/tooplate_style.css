@@ -27,7 +27,7 @@ p {
 
 
 
-h1, h2, h3, h4, h5, h6 { color: #0264a9; font-weight: normal; }
+h1, h2, h3, h4, h5, h6 { color: #a91767; font-weight: normal; }
 h1 { font-size: 48px; margin: 0 0 30px; padding: 5px 0 }
 h2 { font-size: 24px; margin: 0 0 25px; padding: 5px 0; }
 h3 { font-size: 20px; margin: 0 0 20px; padding: 0; }
@@ -61,7 +61,7 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
         text-align: center;
         font-style: italic;
         padding: 0 20px;
-        color:#ffffff;
+        color:#a91767;
         font-size: 13px;
 }
 
@@ -121,7 +121,7 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 	width: 230px;
 	float: left;
 	margin-right: 10px;
-	color: #ababab; 
+	color: #a91767; 
 }
 
 .sb_box {

@@ -37,80 +37,71 @@
               include("include/connessione.php");
               
               $conn=mysqli_connect($HOST, $USER, $PASSWORD,$DB);
-              $ris=mysqli_query($conn, "select * from eventi WHERE id=$_GET[id]");
+              $stringa="select * from eventi where id=" . "$_GET[id]";
+              $ris=mysqli_query($conn, $stringa);
               
-			  
-                                $id=$ris["id"];
-				$no=$ris["nomeEvento"];
-				$de=$ris["descrizione"];
+			  while ( $row=mysqli_fetch_assoc($ris)) {
+                                $id=$row["id"];
+				$no=$row["nomeEvento"];
+				$de=$row["descrizione"];
                                 //header("Content-Type:/jpeg ");
                                 //$da=$row["dati"];
-				$do=$ris["dataOra"];
-				$lu=$ris["luogo"];
-                                $ca=$ris["categoria"];
-                                $ra=$ris["raggiungere"];
-                                $pr=$ris["prezzo"];
-                                $di=$ris["bigliettiDisponibili"];
-                                $ve=$ris["bigliettiVenduti"];
-                                $to=$ris["IncassoTotale"];
-                                $sc=$ris["sconto"];
-               
-                          
+				$do=$row["dataOra"];
+				$lu=$row["luogo"];
+                                $ca=$row["categoria"];
+                                $ra=$row["raggiungere"];
+                                $pr=$row["prezzo"];
+                                $di=$row["bigliettiDisponibili"];
+                                $ve=$row["bigliettiVenduti"];
+                                $to=$row["IncassoTotale"];
+                                $sc=$row["sconto"];
+               }
               mysqli_free_result($ris);
               mysqli_close($conn);
-            echo'
-                <div id="tooplate_content">
-                    <h2>"$no"</h2>
+              
+           
+            echo'     <div id="tooplate_content">';
+              echo" <h2>$no</h2>";
                     
-                    <img style="float: left" src="images/tooplate_image_04.png" alt="Image 04" />
-                    <div class="latofoto1">
+               echo' <img style="float: left" src="images/tooplate_image_04.png" alt="Image 04" />';
+              echo'     <div class="latofoto1">';
                     
-                    <p>Data:</p>
-                    <br></br>
-                    <p>0ra:</p>
-                    <br></br>
-                    <p>Luogo:</p>
-                    <br></br>
+               echo " <p>Data:$do</p>";
+               echo'     <br></br>';
+              echo"    <p>Prezzo:$pr</p>";
+               echo'     <br></br>';
+                echo"      <p>Biglietti disponibili:$di</p>";
+                echo'    <br></br>';
                     
-                    </div>
+             echo'       </div>';
                    
-                    <div class="sottofoto">
-                    <p>Prezzo:</p>
+              echo'      <div class="sottofoto">';
+                
                     
-                    <p>Biglietti disponibili:</p>
-                    </div>
-                    <br></br>
+              echo"   <p>$de</p>";
+              echo'      </div>';
+               echo'     <br></br>';
                     
                     
-                    <p>---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+                
                     
-                    <div style="float: left">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2888.5035405405624!2d13.514887814879156!3d43.616877562797804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132d7fbee4d7ba91%3A0xa9521e2e279f56a2!2sPiazza%20Camillo%20Benso%20di%20Cavour%2C%20Ancona%20AN!5e0!3m2!1sit!2sit!4v1619255454599!5m2!1sit!2sit" width="250" height="150"></iframe>
-                    </div>
+                echo'    <div style="float: left">';
+                echo"    <iframe src=$lu width='250' height='150'></iframe>";
+                echo'    </div>';
                     
-                    <p class="latofoto1"> come raggiungerci 
-                        <br>                         <br>
-                        <br>
-
-                        in macchina:
-                        <br>                        <br>
-                        <br>
- 
-                        in aereo:
-                        <br>                        <br>
-                        <br>
-                        in treno:
-                        <br>
+               echo'     <p class="latofoto1"> come raggiungerci'; 
+                echo'      <br>';  
+                
                         
-                    </p>
+              echo"      $ra</p>";
                     
-                    <div class="cleaner h20"></div>
+              echo'      <div class="cleaner h20"></div>';
                     
-                    <br class="cleaner" />
-                    <hr></hr>
-                </div>
-                <div class="cleaner"></div>
-            </div> ';
+               echo'     <br class="cleaner" />';
+              echo'      <hr></hr>';
+            echo'    </div>';
+          echo'      <div class="cleaner"></div>';
+       echo'     </div> ';
                         ?>
             <!-- end of main -->
 

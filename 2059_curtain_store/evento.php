@@ -10,12 +10,12 @@
         <div id="tooplate_wrapper">
             <div id="tooplate_header">
                 <div id="site_title">
-                    <h1><a href="home.html">SportTikets</a></h1>
+                    <h1><a href="home12.php">SportTikets</a></h1>
                 </div>
 
                 <div id="tooplate_menu" class="ddsmoothmenu">
                     <ul>
-                        <li><a href="home.html" class="selected">Home </a></li>
+                        <li><a href="home12.php" class="selected">Home </a></li>
                         <li><a href="login.html" >Login</a></li>
                         <li><a href="registrati.html" >Registrati</a></li>
                     </ul>
@@ -101,9 +101,9 @@
               echo'      <hr></hr>';
             echo'    </div>';
           echo'      <div class="cleaner"></div>';
-       echo'     </div> ';
+      
                         ?>
-            <!-- end of main -->
+            
 
             <div class="cleaner"></div>
         </div> <!-- end of main -->	
@@ -118,4 +118,6 @@
                 
             </footer> 
         </div>
+        </div> <!-- end of main -->
+        </body>
 </html>

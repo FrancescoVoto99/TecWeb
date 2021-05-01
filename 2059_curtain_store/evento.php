@@ -37,8 +37,7 @@
               include("include/connessione.php");
               
               $conn=mysqli_connect($HOST, $USER, $PASSWORD,$DB);
-              $stringa="select * from eventi where id=" . "$_GET[id]";
-              $ris=mysqli_query($conn, $stringa);
+              $ris=mysqli_query($conn, "select * from eventi");
               
 			  while ( $row=mysqli_fetch_assoc($ris)) {
                                 $id=$row["id"];
@@ -90,10 +89,10 @@
                 echo'    </div>';
                     
                echo'     <p class="latofoto1"> come raggiungerci'; 
-                echo'      <br>';  
+                echo'      <br></br>';  
                 
                         
-              echo"      $ra</p>";
+              echo"      <p>$ra</p>";
                     
               echo'      <div class="cleaner h20"></div>';
                     

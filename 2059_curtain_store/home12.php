@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Home</title>
@@ -22,75 +23,56 @@
             </div>
 
             <div id="tooplate_main">
+                   <div id="tooplate_sidebar">
+            <div class="sb_box">
+            <h3>CATEGORIE</h3>      
+            
+         
+           <form action="home12.php" method="post" >
+           <fieldset title="Scegli una categoria">
+          <label>Calcio <input type="checkbox" name="cate[]" value="calcio" checked></label>	
+          <label>Basket <input type="checkbox" name= "cate[]" value="basket"></label>
+          <label>pallavolo <input type="checkbox" name= "cate[]" value="pallavolo"></label>
+         <input type="submit" value="Invia">
+            </fieldset>
+         
+     </form>        
+         </div>
+          </div> 
                
                 <?php
               include("include/connessione.php");
               
-              $conn=mysqli_connect($HOST, $USER, $PASSWORD,$DB);
-              $ris=mysqli_query($conn, "select * from eventi");
-              $ris2= mysqli_query($conn,"select id, nomeEvento, categoria from eventi");
               
-            echo' <div id="tooplate_sidebar">';
-            echo' <div class="sb_box">'; 
-            echo'<h3>CATEGORIE</h3>';         
-                       
-            echo'<form method="post"><input type="checkbox"name="nuovo" value="ca">Calcio '
-                . '<input type="submit" name="submit" value="invia"> </form>';
-            echo'<form method="post"><input type="checkbox"name="nuovo" value="ba">Basket '
-                . '<input type="submit" name="submit" value="invia"> </form>';
-            echo'<form method="post"><input type="checkbox"name="nuovo" value="pa">Pallavolo '
-                . '<input type="submit" name="submit" value="invia"> </form>';
-                
-             if(isset($_POST["nuovo"])){
-                switch ($_POST["nuovo"]) {
-                 case "ca":
-                    while ( $row=mysqli_fetch_assoc($ris2)) { 
-                        $id=$row["id"];
-                        $nomee=$row["nomeEvento"];
-                        $cat=$row["categoria"];
-                        if($cat=='Calcio')
-                        echo "<p><a href='#$id'>$nomee</a></p>";}
-                    break;
-                 
-                 case "ba":
-                 while ( $row=mysqli_fetch_assoc($ris2)) {
-                    $id=$row["id"];
-                    $nomee=$row["nomeEvento"];
-                    $cat=$row["categoria"];
-                    if($cat=='Basket')
-                    echo "<p><a href='#$id'>$nomee</a></p>";}
-                    break;
-                    
-                 case "pa":
-                   while ( $row=mysqli_fetch_assoc($ris2)) {
-                        $id=$row["id"];
-                        $nomee=$row["nomeEvento"];
-                        $cat=$row["categoria"];
-                        if($cat=='Pallavolo')
-                        echo "<p><a href='#$id'>$nomee</a></p>";}
-                        break;
-                }
-            }
-             
-                echo '</div>';    
+              $sql= "select * from eventi ";
+              
+              
 
-                echo '</div>'; 
-                 
-              
+     
+             $stringa="";
+             if(isset($_POST["cate"])){
+             for($i=0;$i<sizeof($_POST["cate"]);$i++)
+             {
+                if($i==(sizeof($_POST["cate"])-1))
+            $stringa .= "categoria = '" . $_POST["cate"][$i] . "'" ;
+         else
+            $stringa .= "categoria = '" . $_POST["cate"][$i] . "' or ";
+    }
+            $sql .= "where " . $stringa;
+             }
+             
+             
+               
+                  
+                    $conn=mysqli_connect($HOST, $USER, $PASSWORD,$DB);
+                    $ris=mysqli_query($conn, $sql);
                     while ( $row=mysqli_fetch_assoc($ris)) {
                             $id=$row["id"];
                             $no=$row["nomeEvento"];
                             $de=$row["descrizione"];
-                                //header("Content-Type:/jpeg ");
-                                //$da=$row["dati"];
-				//$do=$row["dataOra"];
-				//$lu=$row["luogo"];
-                                //$ca=$row["categoria"];
-                                //$ra=$row["raggiungere"];
+                          
                             $pr=$row["prezzo"];
                             $di=$row["bigliettiDisponibili"];
-                                //$ve=$row["bigliettiVenduti"];
-                                //$to=$row["IncassoTotale"];
                                 //$sc=$row["sconto"];
                
                       
@@ -113,7 +95,7 @@
               echo '<hr> </hr>';
                         echo '  </div>';
               
-                }
+              }
                mysqli_free_result($ris);
               mysqli_close($conn);
             ?>

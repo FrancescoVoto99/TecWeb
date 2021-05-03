@@ -132,6 +132,12 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 .sb_box h3 {
 	color: #fff
 }
+.evento {
+        font-family:'Brush Script MT';
+        font-size : 18px;
+        color: #ffd700
+        
+}
 
 .sb_menu li a:hover {
 	text-decoration: none;

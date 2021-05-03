@@ -63,12 +63,12 @@ float: none;
 	font-size: 12px;
 	text-align: left;
 	background: none;
-	color: #fff;
+	color: #ffd700;
 	background: url(../images/tooplate_menu_divider.jpg) repeat-x bottom
 }
 
 
 .ddsmoothmenu ul li ul li a.selected, .ddsmoothmenu ul li ul li a:hover {
-	color: #fff;
+	color: #ffd700;
 	background: #0264a9
 }

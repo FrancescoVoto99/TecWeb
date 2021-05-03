@@ -30,9 +30,9 @@
          
            <form action="home12.php" method="post" >
            <fieldset title="Scegli una categoria">
-          <label>Calcio <input type="checkbox" name="cate[]" value="calcio" checked></label>	
-          <label>Basket <input type="checkbox" name= "cate[]" value="basket"></label>
-          <label>pallavolo <input type="checkbox" name= "cate[]" value="pallavolo"></label>
+          <label><input type="checkbox" name="cate[]" value="calcio" >Calcio </label><br></br>	
+          <label><input type="checkbox" name= "cate[]" value="basket">Basket</label><br></br>
+          <label><input type="checkbox" name= "cate[]" value="pallavolo">Pallavolo </label><br></br>
          <input type="submit" value="Invia">
             </fieldset>
          
@@ -42,19 +42,13 @@
                
                 <?php
               include("include/connessione.php");
-              
-              
               $sql= "select * from eventi ";
-              
-              
-
-     
-             $stringa="";
+               $stringa="";
              if(isset($_POST["cate"])){
              for($i=0;$i<sizeof($_POST["cate"]);$i++)
              {
                 if($i==(sizeof($_POST["cate"])-1))
-            $stringa .= "categoria = '" . $_POST["cate"][$i] . "'" ;
+                    $stringa .= "categoria = '" . $_POST["cate"][$i] . "'" ;
          else
             $stringa .= "categoria = '" . $_POST["cate"][$i] . "' or ";
     }
@@ -70,7 +64,6 @@
                             $id=$row["id"];
                             $no=$row["nomeEvento"];
                             $de=$row["descrizione"];
-                          
                             $pr=$row["prezzo"];
                             $di=$row["bigliettiDisponibili"];
                                 //$sc=$row["sconto"];

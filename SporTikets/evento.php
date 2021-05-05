@@ -37,6 +37,7 @@
               include("include/connessione.php");
               
               $conn=mysqli_connect($HOST, $USER, $PASSWORD,$DB);
+              
               $ris=mysqli_query($conn, "select * from eventi");
               
 			  while ( $row=mysqli_fetch_assoc($ris)) {

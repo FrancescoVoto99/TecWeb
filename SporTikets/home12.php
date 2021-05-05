@@ -9,12 +9,12 @@
         <div id="tooplate_wrapper">
             <div id="tooplate_header">
                 <div id="site_title">
-                    <h1><a href="home.html">SportTikets</a></h1>
+                    <h1><a href="home12.php">SportTikets</a></h1>
                 </div>
 
                 <div id="tooplate_menu" class="ddsmoothmenu">
                     <ul>
-                        <li><a href="home.html" class="selected">Home </a></li>
+                        <li><a href="home12.php" class="selected">Home </a></li>
                         <li><a href="login.html" >Login</a></li>
                         <li><a href="registrati.html" >Registrati</a></li>
                     </ul>
@@ -31,11 +31,22 @@
                 <label><input type="checkbox" name="cate[]" value="calcio" >Calcio </label><br></br>
                 <label><input type="checkbox" name= "cate[]" value="basket">Basket</label><br></br>
                 <label><input type="checkbox" name= "cate[]" value="pallavolo">Pallavolo</label><br></br>
-                <input type="submit" value="Invia">
+                
                 </fieldset>
+                
+            <br></br>
+                
+                <h3>DATA</h3>      
+                
+                <fieldset title="Scegli la data dell'evento">
+                <input type="date" name= "data" /><br></br>
+                </fieldset>
+                <br></br>
+                <input type="submit" value="Invia">
                 </form>
             </div>
-            </div>
+            </div>    
+             
                
             <?php
                 include("include/connessione.php");
@@ -48,7 +59,17 @@
                 else
                     $stringa .= "categoria = '" . $_POST["cate"][$i] . "' or ";}
                 $sql .= "where " . $stringa;
+                
                 }
+                if(isset($_POST["data"])){
+                $new_date = date('Y-m-d', strtotime($_POST['data']));
+                if($new_date != "1970-01-01" ){
+                    echo "sei qui $new_date";
+                
+                if (isset($_POST["cate"])) $sql .= "and dataOra = '$new_date'";
+                else $sql .= "where dataOra = '$new_date'";
+                
+                }}
                 
                 
                 $conn=mysqli_connect($HOST, $USER, $PASSWORD,$DB);

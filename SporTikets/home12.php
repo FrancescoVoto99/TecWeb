@@ -64,10 +64,9 @@
                 if(isset($_POST["data"])){
                 $new_date = date('Y-m-d', strtotime($_POST['data']));
                 if($new_date != "1970-01-01" ){
-                    echo "sei qui $new_date";
-                
-                if (isset($_POST["cate"])) $sql .= "and dataOra = '$new_date'";
-                else $sql .= "where dataOra = '$new_date'";
+                if (isset($_POST["cate"])) $sql .= " and dataOra = '$new_date'";
+                else $sql .= "where DATE(dataOra) = DATE('$new_date')";
+                echo "$sql";
                 
                 }}
                 

@@ -31,7 +31,6 @@
                 <label><input type="checkbox" name="cate[]" value="calcio" >Calcio </label><br></br>
                 <label><input type="checkbox" name= "cate[]" value="basket">Basket</label><br></br>
                 <label><input type="checkbox" name= "cate[]" value="pallavolo">Pallavolo</label><br></br>
-                
                 </fieldset>
                 
             <br></br>
@@ -45,29 +44,32 @@
                 
                 <h3>LUOGO</h3>      
                 
-                <fieldset title="Scegli il luogo dell'evento">
-                <input type=hidden name=qlist value=ITREGION><!--STQ:ITREGION--><div ID="divITREGION" style="display:inline"><p><span ID='errITREGION'></span>&nbsp; <select name="ITREGION"><option value=''>
-    <option value="1" >Abruzzo
-    <option value="2" >Basilicata
-    <option value="3" >Calabria
-    <option value="4" >Campania
-    <option value="5" >Emilia Romagna
-    <option value="6" >Friuli-Venezia Giulia
-    <option value="7" >Lazio
-    <option value="8" >Liguria
-    <option value="9" >Lombardia
-    <option value="10" >Marche
-    <option value="11" >Molise
-    <option value="12" >Piemonte
-    <option value="13" >Puglia
-    <option value="14" >Sardegna
-    <option value="15" >Sicilia
-    <option value="16" >Toscana
-    <option value="17" >Trentino Alto Adige
-    <option value="18" >Umbria
-    <option value="19" >Valle d'Aosta
-    <option value="20" >Veneto
-             </select></div><!--EDQ:ITREGION--><input type=hidden name=qlist value="REGIT"><input type=hidden name=qlist value="REGPANIT"><p><center>
+                <fieldset title="Luogo ">
+                <input type=hidden name=reg[] value=reggg><!--STQ:ITREGION-->
+                <div ID="divITREGION" style="display:inline"><p><span ID='errITREGION'></span>&nbsp; 
+                        <select name="regg[]">
+                    <option value=''>
+                    <option value="Abruzzo" >Abruzzo
+                    <option value="Basilicata" >Basilicata
+                    <option value="Calabria" >Calabria
+                    <option value="Campania" >Campania
+                    <option value="Emilia Romagna" >Emilia-Romagna
+                    <option value="Friuli Venezia Giulia" >Friuli-Venezia Giulia
+                    <option value="Lazio" >Lazio
+                    <option value="Liguria" >Liguria
+                    <option value="Lombardia" >Lombardia
+                    <option value="Marche" >Marche
+                    <option value="Molise" >Molise
+                    <option value="Piemonte" >Piemonte
+                    <option value="Puglia" >Puglia
+                    <option value="Sardegna" >Sardegna
+                    <option value="Sicilia" >Sicilia
+                    <option value="Toscana" >Toscana
+                    <option value="Trentino Alto Adige" >Trentino-Alto Adige
+                    <option value="Umbria" >Umbria
+                    <option value="Valle d'Aosta" >Valle d'Aosta
+                    <option value="Veneto" >Veneto
+             </select></div><!--EDQ:ITREGION-->
                 </fieldset>
                 <br></br>
 
@@ -76,7 +78,6 @@
             </div>
             </div>    
              
-               
             <?php
                 include("include/connessione.php");
                 $sql= "select * from eventi ";
@@ -96,9 +97,16 @@
                 if (isset($_POST["cate"])) $sql .= " and dataOra = '$new_date'";
                 else $sql .= "where DATE(dataOra) = DATE('$new_date')";
                 echo "$sql";
-                
                 }}
                 
+                if(isset($_POST["regg"])){
+                for($i=0;$i<sizeof($_POST["regg"]);$i++){
+                    if($i==(sizeof($_POST["regg"])-1))
+                    $stringa .= "regione = '" . $_POST["regg"][$i] . "'" ;
+                else
+                    $stringa .= "regione = '" . $_POST["regg"][$i] . "' or ";
+                $sql .= "where " . $stringa;
+                }}
                 
                 $conn=mysqli_connect($HOST, $USER, $PASSWORD,$DB);
                     $ris=mysqli_query($conn, $sql);

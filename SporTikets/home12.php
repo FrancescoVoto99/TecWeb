@@ -42,6 +42,35 @@
                 <input type="date" name= "data" /><br></br>
                 </fieldset>
                 <br></br>
+                
+                <h3>LUOGO</h3>      
+                
+                <fieldset title="Scegli il luogo dell'evento">
+                <input type=hidden name=qlist value=ITREGION><!--STQ:ITREGION--><div ID="divITREGION" style="display:inline"><p><span ID='errITREGION'></span>&nbsp; <select name="ITREGION"><option value=''>
+    <option value="1" >Abruzzo
+    <option value="2" >Basilicata
+    <option value="3" >Calabria
+    <option value="4" >Campania
+    <option value="5" >Emilia Romagna
+    <option value="6" >Friuli-Venezia Giulia
+    <option value="7" >Lazio
+    <option value="8" >Liguria
+    <option value="9" >Lombardia
+    <option value="10" >Marche
+    <option value="11" >Molise
+    <option value="12" >Piemonte
+    <option value="13" >Puglia
+    <option value="14" >Sardegna
+    <option value="15" >Sicilia
+    <option value="16" >Toscana
+    <option value="17" >Trentino Alto Adige
+    <option value="18" >Umbria
+    <option value="19" >Valle d'Aosta
+    <option value="20" >Veneto
+             </select></div><!--EDQ:ITREGION--><input type=hidden name=qlist value="REGIT"><input type=hidden name=qlist value="REGPANIT"><p><center>
+                </fieldset>
+                <br></br>
+
                 <input type="submit" value="Invia">
                 </form>
             </div>

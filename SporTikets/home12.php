@@ -43,11 +43,12 @@
                 <br></br>
                 
                 <h3>LUOGO</h3>      
-                
+                 
+        
                 <fieldset title="Luogo ">
                 <input type=hidden name=reg[] value=reggg><!--STQ:ITREGION-->
                 <div ID="divITREGION" style="display:inline"><p><span ID='errITREGION'></span>&nbsp; 
-                        <select name="regg[]" size="7" multiple>
+                        <select name="regg[]" multiple>
                     <option value=''>
                     <option value="Abruzzo" >Abruzzo
                     <option value="Basilicata" >Basilicata
@@ -92,6 +93,7 @@
                 $sql .= "where " . $stringa;
                 
                 }
+                $new_date;
                 if(isset($_POST["data"])){
                 $new_date = date('Y-m-d', strtotime($_POST['data']));
                 if($new_date != "1970-01-01" ){
@@ -105,11 +107,11 @@
                     if($i==(sizeof($_POST["regg"])-1))
                     $stringa .= "regione = '" . $_POST["regg"][$i] . "'" ;
                 else
-                    $stringa .= "regione = '" . $_POST["regg"][$i] . "' or ";
-                if(isset($_POST["data"]) || isset($_POST["cate"]))
-                {$sql .= " and " . $stringa;}
-                else {$sql .= "where " . $stringa;}
-                }}
+                    $stringa .= "regione = '" . $_POST["regg"][$i] . "' or ";}
+                if(isset($_POST["cate"]) || $new_date != "1970-01-01" )
+                $sql .= " and " . $stringa;
+                else $sql .= "where " . $stringa;
+                }
                 
                 $conn=mysqli_connect($HOST, $USER, $PASSWORD,$DB);
                     $ris=mysqli_query($conn, $sql);

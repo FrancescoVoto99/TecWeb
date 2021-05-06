@@ -96,7 +96,6 @@
                 if($new_date != "1970-01-01" ){
                 if (isset($_POST["cate"])) $sql .= " and dataOra = '$new_date'";
                 else $sql .= "where DATE(dataOra) = DATE('$new_date')";
-                echo "$sql";
                 }}
                 
                 if(isset($_POST["regg"])){

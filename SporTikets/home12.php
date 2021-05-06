@@ -47,7 +47,7 @@
                 <fieldset title="Luogo ">
                 <input type=hidden name=reg[] value=reggg><!--STQ:ITREGION-->
                 <div ID="divITREGION" style="display:inline"><p><span ID='errITREGION'></span>&nbsp; 
-                        <select name="regg[]">
+                        <select name="regg[]" size="7" multiple>
                     <option value=''>
                     <option value="Abruzzo" >Abruzzo
                     <option value="Basilicata" >Basilicata
@@ -81,8 +81,9 @@
             <?php
                 include("include/connessione.php");
                 $sql= "select * from eventi ";
-                $stringa="";
+                
                 if(isset($_POST["cate"])){
+                    $stringa="";
                 for($i=0;$i<sizeof($_POST["cate"]);$i++){
                     if($i==(sizeof($_POST["cate"])-1))
                     $stringa .= "categoria = '" . $_POST["cate"][$i] . "'" ;
@@ -99,12 +100,15 @@
                 }}
                 
                 if(isset($_POST["regg"])){
+                    $stringa="";
                 for($i=0;$i<sizeof($_POST["regg"]);$i++){
                     if($i==(sizeof($_POST["regg"])-1))
                     $stringa .= "regione = '" . $_POST["regg"][$i] . "'" ;
                 else
                     $stringa .= "regione = '" . $_POST["regg"][$i] . "' or ";
-                $sql .= "where " . $stringa;
+                if(isset($_POST["data"]) || isset($_POST["cate"]))
+                {$sql .= " and " . $stringa;}
+                else {$sql .= "where " . $stringa;}
                 }}
                 
                 $conn=mysqli_connect($HOST, $USER, $PASSWORD,$DB);

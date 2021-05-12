@@ -13,7 +13,7 @@
 	float: left;
 }
 
-/*Top level menu link items style*/
+/*menu home login e registrati*/
 .ddsmoothmenu ul li a {
 	float: left;
 	display: block;
@@ -31,7 +31,7 @@
 }
 
 
-
+/*colore del tasto home login e registrati quando ci vai con il mouse*/
 .ddsmoothmenu ul li a.selected, .ddsmoothmenu ul li a:hover { /*CSS class that's dynamically added to the currently active menu items' LI A element*/
 	color: #fff;
 	background: #0264a9

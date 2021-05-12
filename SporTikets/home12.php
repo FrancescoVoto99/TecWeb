@@ -25,9 +25,20 @@
             <div id="tooplate_main">
             <div id="tooplate_sidebar">
             <div class="sb_box">
-                <h3>CATEGORIE</h3>      
+             
+                <form action="home12.php" method="post">
+                    <fieldset title="Cerca nelle descrizioni ">
+                        <legend>Cerca nelle descrizioni</legend>
+                        <input type="text" name="cerca" placeholder="Ricerca" />
+                        <input type="submit" value="Cerca"/>
+                    </fieldset>
+                </form>
+            <br></br>    
+            
+                 <fieldset title="Luogo ">     
                 <form action="home12.php" method="post" >
                 <fieldset title="Scegli una categoria">
+                    <legend>Categorie</legend>
                 <label><input type="checkbox" name="cate[]" value="calcio" >Calcio </label><br></br>
                 <label><input type="checkbox" name= "cate[]" value="basket">Basket</label><br></br>
                 <label><input type="checkbox" name= "cate[]" value="pallavolo">Pallavolo</label><br></br>
@@ -35,21 +46,20 @@
                 
             <br></br>
                 
-                <h3>DATA</h3>      
-                
+               
                 <fieldset title="Scegli la data dell'evento">
+                <legend>Data</legend>
                 <input type="date" name= "data" /><br></br>
                 </fieldset>
                 <br></br>
                 
-                <h3>LUOGO</h3>      
-                 
+                
         
                 <fieldset title="Luogo ">
+                    <legend>Luogo</legend>
                 <input type=hidden name=reg[] value=reggg><!--STQ:ITREGION-->
                 <div ID="divITREGION" style="display:inline"><p><span ID='errITREGION'></span>&nbsp; 
                         <select name="regg[]" multiple>
-                    <option value=''>
                     <option value="Abruzzo" >Abruzzo
                     <option value="Basilicata" >Basilicata
                     <option value="Calabria" >Calabria
@@ -75,6 +85,7 @@
                 <br></br>
 
                 <input type="submit" value="Invia">
+                </fieldset>
                 </form>
             </div>
             </div>    
@@ -82,6 +93,26 @@
             <?php
                 include("include/connessione.php");
                 $sql= "select * from eventi ";
+                $conn=mysqli_connect($HOST, $USER, $PASSWORD,$DB);
+                
+                
+                
+                
+                
+                //inizio filtro di ricerca
+                $result='';
+                if(isset($_POST["cerca"])){
+                $result='';
+                $cerca=$_POST["cerca"];
+                $sql="SELECT * FROM eventi WHERE descrizione like '%".$cerca."%'";
+                $result=$conn->query($sql);
+                if($result->num_rows >0){  
+                }else{
+                    echo" Nessn evento trovato ";
+                }}//fine filtro di ricerca
+                
+                
+                
                 
                 if(isset($_POST["cate"])){
                     $stringa="";
@@ -113,8 +144,7 @@
                 else $sql .= "where " . $stringa;
                 }
                 
-                $conn=mysqli_connect($HOST, $USER, $PASSWORD,$DB);
-                    $ris=mysqli_query($conn, $sql);
+                $ris=mysqli_query($conn, $sql);
                     while ( $row=mysqli_fetch_assoc($ris)) {
                             $id=$row["id"];
                             $no=$row["nomeEvento"];
@@ -122,8 +152,6 @@
                             $pr=$row["prezzo"];
                             $di=$row["bigliettiDisponibili"];
                                 //$sc=$row["sconto"];
-               
-                      
                 echo ' <div id="tooplate_content">';
                 echo "<h2><a name='$id' href='evento.php?id=$id'>$no</a></h2>";
                 echo '<img src="images/tooplate_image_04.png" alt="Image 04" />';

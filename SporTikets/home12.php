@@ -4,6 +4,9 @@
         <title>Home</title>
         <link href="css/tooplate_style.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+        <link rel="stylesheet" type="text/css" href="css/cerca.css" />
+        <script type="text/javascript" src="js/caption.js"></script>
+       
     </head>
     <body>
         <div id="tooplate_wrapper">
@@ -26,11 +29,12 @@
             <div id="tooplate_sidebar">
             <div class="sb_box">
              
-                <form action="home12.php" method="post">
+                <form action="home12.php" method="post" id="search">
                     <fieldset title="Cerca nelle descrizioni ">
                         <legend>Cerca nelle descrizioni</legend>
-                        <input type="text" name="cerca" placeholder="Ricerca" />
-                        <input type="submit" value="Cerca"/>
+                        <input type="text" id="search-in" name="cerca"  />
+                        <button style="background: url(images/lente4.png)" alt="Cerca" ></button>
+                        
                     </fieldset>
                 </form>
             <br></br>    

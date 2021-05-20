@@ -54,7 +54,7 @@ float: none;
 
 /* Sub level menu links style */
 .ddsmoothmenu ul li ul li a{
-	font-weight: 500;
+	font-weight: 500px;
 	width: 120px; /*width of sub menus*/
 	height: 28px;
 	line-height: 28px;

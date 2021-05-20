@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
+        
         <title>Home</title>
-        <link href="css/tooplate_style.css" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
         <link rel="stylesheet" type="text/css" href="css/cerca.css" />
+        <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+        <link href="css/tooplate_style.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="js/caption.js"></script>
+        
        
     </head>
     <body>
@@ -22,12 +24,12 @@
                         <li><a href="registrati.html" >Registrati</a></li>
                     </ul>
                     <br style="clear: left" />
-                </div> <!-- end of menu -->
+                </div><!-- end of menu -->
             </div>
 
             <div id="tooplate_main">
-            <div id="tooplate_sidebar">
-            <div class="sb_box">
+                <div id="tooplate_sidebar">
+                    <div class="sb_box">
              
                 <form action="home12.php" method="post" id="search">
                     <fieldset title="Cerca nelle descrizioni ">
@@ -38,9 +40,9 @@
                     </fieldset>
                 </form>
             <br></br>    
-            
-                 <fieldset title="Luogo ">     
-                <form action="home12.php" method="post" >
+            <form action="home12.php" method="post" >
+                 <fieldset title="Luogo ">
+                
                 <fieldset title="Scegli una categoria">
                     <legend>Categorie</legend>
                 <label><input type="checkbox" name="cate[]" value="calcio" >Calcio </label><br></br>
@@ -92,7 +94,7 @@
                 </fieldset>
                 </form>
             </div>
-            </div>    
+            </div>
              
             <?php
                 include("include/connessione.php");
@@ -179,6 +181,9 @@
             <div class="cleaner"></div>
             </div>  <!-- end of main -->
             <div class="cleaner"></div>
+            
+            
+            
             <div id="tooplate_footer">
             <footer>
                 
@@ -186,7 +191,7 @@
                 <p class="footer1"><a href="chi_siamo.html">Chi Siamo</a></p>
                 <p class="footer1"><a href="lavora_con_noi.html">Lavora Con Noi</a></p>
                 Copyright © 2048 Company Name 
-            </footer> 
+            </footer>
             </div>
         </div> <!-- end of main -->
     </body>

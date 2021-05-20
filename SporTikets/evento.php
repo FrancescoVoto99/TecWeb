@@ -24,16 +24,8 @@
             </div>
 
             <div id="tooplate_main">
-                <div id="tooplate_sidebar">
-                    <div class="sb_box">
-                        <h3>CATEGORIE</h3>
-                        <p>EVENTO 1</p>
-                        <p>EVENTO 2</p>
-                        
-                    </div>
-
-                </div> <!-- end of sidebar -->
-                <?php
+               
+            <?php
               include("include/connessione.php");
               
               $conn=mysqli_connect($HOST, $USER, $PASSWORD,$DB);
@@ -61,52 +53,34 @@
               mysqli_close($conn);
               
            
-            echo'     <div id="tooplate_content">';
-              echo" <h2>$no</h2>";
-                    
-               echo' <img style="float: left" src="images/tooplate_image_04.png" alt="Image 04" />';
-              echo'     <div class="latofoto1">';
-                    
-               echo " <p>Data:$do</p>";
-               echo'     <br></br>';
-              echo"    <p>Prezzo:$pr</p>";
-               echo'     <br></br>';
-                echo"      <p>Biglietti disponibili:$di</p>";
-                echo'    <br></br>';
-                    
-             echo'       </div>';
-                   
-              echo'      <div class="sottofoto">';
-                
-                    
-              echo"   <p>$de</p>";
-              echo'      </div>';
-               echo'     <br></br>';
-                    
-                    
-                
-                    
-                echo'    <div style="float: left">';
-                echo"    <iframe src=$lu width='250' height='150'></iframe>";
-                echo'    </div>';
-                    
-               echo'     <p class="latofoto1"> come raggiungerci'; 
-                echo'      <br></br>';  
-                
-                        
-              echo"      <p>$ra</p>";
-                    
-              echo'      <div class="cleaner h20"></div>';
-                    
-               echo'     <br class="cleaner" />';
-              echo'      <hr></hr>';
-            echo'    </div>';
-          echo'      <div class="cleaner"></div>';
-      
-                        ?>
+            echo'<div id="tooplate_content">';
+            echo"<h2>$no</h2>";
+            echo'<img style="float: left" src="images/tooplate_image_04.png" alt="Image 04" />';
+            echo'<div class="latofoto1">';
+            echo" <p>Data:$do</p>";
+            echo'<br></br>';
+            echo"<p>Prezzo:$pr</p>";
+            echo'<br></br>';
+            echo"<p>Biglietti disponibili:$di</p>";
+            echo'<br></br>';
+            echo'</div>';
+            echo'<div class="sottofoto">';
+            echo"<p>$de</p>";
+            echo'</div>';
+            echo'<br></br>';
+            echo'<div style="float: left">';
+            echo"<iframe src=$lu width='250' height='150'></iframe>";
+            echo'</div>';
+            echo'<p class="latofoto1"> come raggiungerci'; 
+            echo'<br></br>';  
+            echo"<p>$ra</p>";
+            echo'<div class="cleaner h20"></div>';
+            echo'<br class="cleaner" />';
+            echo'<hr></hr>';
+            echo'</div>';
+            echo'<div class="cleaner"></div>';
+            ?>
             
-
-            <div class="cleaner"></div>
         </div> <!-- end of main -->	
 
         <div id="tooplate_footer">
